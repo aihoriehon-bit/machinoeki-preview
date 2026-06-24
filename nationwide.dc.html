@@ -20,9 +20,14 @@
     display: contents;
   }
   @media (max-width: 720px) {
-    .nationwide-region-grid {
+    body .nationwide-region-grid,
+    body .nationwide-region-grid[style*="grid-template-columns:repeat(3,1fr)"],
+    body .nationwide-region-grid[style*="grid-template-columns: repeat(3, 1fr)"] {
       grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
       gap: 8px !important;
+    }
+    .nationwide-region-card {
+      min-height: 150px;
     }
     .nationwide-region-name {
       font-size: 18px !important;
