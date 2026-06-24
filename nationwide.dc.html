@@ -16,6 +16,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
   body { margin:0; }
+  .nationwide-region-grid > sc-for {
+    display: contents;
+  }
   @media (max-width: 720px) {
     .nationwide-region-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
@@ -54,7 +57,7 @@
     <div style="text-align:center; font-size:12px; color:#777; margin-bottom:22px;">確認したいエリアを3つから選択して下さい</div>
     <div class="nationwide-region-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
       <sc-for list="{{ regions }}" as="r" hint-placeholder-count="3">
-        <div onClick="{{ r.onClick }}" style="border:3px solid {{ r.color }}; border-radius:14px; overflow:hidden; box-shadow:0 2px 5px rgba(0,0,0,0.1); cursor:pointer; transition:transform .15s ease, box-shadow .15s ease;" style-hover="transform:translateY(-3px); box-shadow:0 6px 16px rgba(0,0,0,0.18);" style-active="transform:translateY(0); box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+        <div class="nationwide-region-card" onClick="{{ r.onClick }}" style="border:3px solid {{ r.color }}; border-radius:14px; overflow:hidden; box-shadow:0 2px 5px rgba(0,0,0,0.1); cursor:pointer; transition:transform .15s ease, box-shadow .15s ease;" style-hover="transform:translateY(-3px); box-shadow:0 6px 16px rgba(0,0,0,0.18);" style-active="transform:translateY(0); box-shadow:0 2px 5px rgba(0,0,0,0.1);">
           <div class="nationwide-region-name" style="text-align:center; font-size:26px; font-weight:700; color:#ffffff; background:{{ r.color }}; padding:12px 0;">{{ r.name }}</div>
           <div class="nationwide-region-prefs" style="font-size:14px; font-weight:700; color:{{ r.color }}; line-height:2; padding:16px 14px; text-align:center; white-space:pre-line;">{{ r.prefs }}</div>
         </div>
