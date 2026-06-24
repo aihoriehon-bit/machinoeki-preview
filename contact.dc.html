@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>まちの駅 公式サイト</title>
+<script src="./support.js"></script>
+<script src="./site-mobile.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; }
+  @media (max-width: 720px) {
+    .contact-name-row {
+      align-items: stretch !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+    }
+  }
+</style>
+</helmet>
+<div style="font-family:'Noto Sans JP',sans-serif; color:#333; background:#ffffff; min-height:100vh;">
+  <dc-import name="Header" active="contact" style="position:sticky; top:0; z-index:1000;" hint-size="100%,62px"></dc-import>
+
+  <section data-screen-label="お問い合わせ / タイトル" style="background:#1a9d5e; padding:34px 24px 60px;">
+    <div style="max-width:980px; margin:0 auto;">
+      <div style="font-size:12px; color:#ffffff;"><a href="index.dc.html" style="color:#fff; text-decoration:underline;">HOME</a> ｜ <a href="index.dc.html" style="color:#fff; text-decoration:underline;">まちの駅（テストページ）</a> ｜お問い合わせ</div>
+      <h1 style="text-align:center; color:#ffffff; font-size:34px; font-weight:500; letter-spacing:10px; margin:44px 0 0;">お問い合わせ</h1>
+    </div>
+  </section>
+
+  <div style="max-width:720px; margin:0 auto; padding:48px 24px 80px;">
+    <h3 style="font-size:16px; color:#46b35e; font-weight:700; margin:0 0 14px;">お問合せフォーム</h3>
+    <p style="font-size:14px; color:#555; line-height:1.9; margin:0 0 12px;">お問合せいただいた場合、ご返信までに3〜4営業日いただいております。あらかじめご了承下さいませ。</p>
+    <p style="font-size:14px; color:#555; line-height:1.9; margin:0 0 12px;">お問合せ内容をご記入後、送信ボタンを押してください。<br>確認画面の一番下『送信する』ボタンを押してお問合せ完了となります。</p>
+    <p style="font-size:14px; color:#555; line-height:1.9; margin:0 0 18px; border-bottom:1px solid #e3e3e3; padding-bottom:18px;">当社からの「お問合せフォーム受け付けました」メールが届かない場合はお手数ですが、再度送信をお願いいたします。</p>
+
+    <div style="font-size:16px; color:#333; font-weight:500; margin-bottom:8px;">お名前<span style="color:#e23;">＊</span></div>
+    <div class="contact-name-row" style="display:flex; align-items:center; gap:14px; margin-bottom:24px;">
+      <span style="font-size:13px; color:#555;">氏名</span>
+      <input placeholder="お名前" style="flex:1; border:1px solid #ccc; border-radius:4px; padding:11px 14px; font-size:13px; font-family:inherit; color:#333; box-sizing:border-box;">
+    </div>
+    <div style="font-size:16px; color:#333; font-weight:500; margin-bottom:8px;">メールアドレス<span style="color:#e23;">＊</span></div>
+    <input placeholder="メールアドレス" style="width:100%; border:1px solid #ccc; border-radius:4px; padding:11px 14px; font-size:13px; font-family:inherit; color:#333; box-sizing:border-box; margin-bottom:24px;">
+    <div style="font-size:16px; color:#333; font-weight:500; margin-bottom:8px;">お問い合わせ内容<span style="color:#e23;">＊</span></div>
+    <textarea placeholder="お問い合わせ内容" rows="6" style="width:100%; border:1px solid #ccc; border-radius:4px; padding:11px 14px; font-size:13px; font-family:inherit; color:#333; box-sizing:border-box; resize:vertical; margin-bottom:24px;"></textarea>
+    <button style="width:100%; background:#5cb85c; color:#ffffff; border:none; border-radius:4px; padding:13px; font-size:14px; font-family:inherit; cursor:pointer; transition:filter .15s ease, transform .1s ease, box-shadow .15s ease;" style-hover="filter:brightness(1.07); box-shadow:0 4px 12px rgba(92,184,92,0.4);" style-active="transform:scale(0.99); filter:brightness(0.93);">確認</button>
+    <div style="display:flex; gap:10px; align-items:center; background:#f2f2f2; border:1px solid #ddd; border-radius:4px; padding:10px 14px; width:230px; margin-top:18px;">
+      <div style="width:28px; height:28px; background:#d9d9d9; border-radius:3px;"></div>
+      <div style="font-size:11px; color:#3b6fd4; font-weight:700;">reCAPTCHA で保護されています</div>
+    </div>
+  </div>
+
+  <dc-import name="Footer" active="contact" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>
