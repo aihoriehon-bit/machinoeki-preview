@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>まちの駅 公式サイト</title>
+<script src="./support.js"></script>
+<script src="./site-mobile.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; }
+  @media (max-width: 720px) {
+    .become-info-grid {
+      grid-template-columns: 1fr !important;
+      gap: 30px !important;
+    }
+    .become-name-row {
+      align-items: stretch !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+    }
+  }
+</style>
+</helmet>
+<div style="font-family:'Noto Sans JP',sans-serif; color:#333; background:#ffffff; min-height:100vh;">
+  <dc-import name="Header" active="become" style="position:sticky; top:0; z-index:1000;" hint-size="100%,62px"></dc-import>
+
+  <section data-screen-label="まちの駅になるには / タイトル" style="background:#1a9d5e; padding:34px 24px 56px;">
+    <div style="max-width:980px; margin:0 auto;">
+      <div style="font-size:12px; color:#ffffff;"><a href="index.dc.html" style="color:#fff; text-decoration:underline;">HOME</a> ｜ <a href="index.dc.html" style="color:#fff; text-decoration:underline;">まちの駅（テストページ）</a> ｜まちの駅になるには</div>
+      <h1 style="text-align:center; color:#ffffff; font-size:34px; font-weight:500; letter-spacing:10px; margin:40px 0 0;">まちの駅になるには</h1>
+    </div>
+  </section>
+
+  <div class="become-info-grid" style="max-width:980px; margin:0 auto; padding:46px 24px 0; display:grid; grid-template-columns:1fr 1fr; gap:50px;">
+    <!-- application flow -->
+    <div>
+      <h2 style="font-size:16px; font-weight:700; color:#1a9d5e; border-left:5px solid #1a9d5e; padding-left:10px; margin:0 0 18px;">申請について</h2>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:0;">
+        <div style="background:#f7c873; border-radius:8px; padding:18px 22px; width:100%; box-sizing:border-box;">
+          <div style="font-weight:700; font-size:18px; color:#333; text-align:center; margin-bottom:10px;">まずはご連絡ください！</div>
+          <div style="font-size:14px; color:#444; line-height:1.9;">【連絡先】<br>全国まちの駅連絡協議会事務局<br>特定非営利活動法人地域交流センター<br>電話：03-5823-4190<br>メール：oshiete@machinoeki.com</div>
+        </div>
+        <div style="width:2px; height:18px; border-left:2px dashed #333;"></div>
+        <div style="background:#f7c873; border-radius:8px; padding:13px 18px; width:100%; box-sizing:border-box; text-align:center; font-size:13px; font-weight:700; color:#333;">事務局から必要書類等を送付させていただきます</div>
+        <div style="width:2px; height:18px; border-left:2px dashed #333;"></div>
+        <div style="background:#f7c873; border-radius:8px; padding:13px 18px; width:100%; box-sizing:border-box; text-align:center; font-size:13px; font-weight:700; color:#333;">書類の内容を事務局内で確認させていただきます<br><span style="font-size:11px; font-weight:400;">（※1か月程度）</span></div>
+        <div style="width:2px; height:18px; border-left:2px dashed #333;"></div>
+        <div style="background:#46b35e; border-radius:8px; padding:15px 18px; width:100%; box-sizing:border-box; text-align:center; font-size:17px; font-weight:700; color:#ffffff;">まちの駅認定！</div>
+      </div>
+    </div>
+    <!-- cost -->
+    <div>
+      <h2 style="font-size:16px; font-weight:700; color:#1a9d5e; border-left:5px solid #1a9d5e; padding-left:10px; margin:0 0 18px;">費　用</h2>
+      <p style="font-size:14px; color:#555; line-height:1.9; margin:0 0 24px;">まちの駅を設置するには、全国まちの駅連絡協議会への加盟と、年会費・新規認定料が必要です。</p>
+      <div style="font-weight:700; font-size:14px; color:#333; margin-bottom:8px;">【年会費】</div>
+      <div style="font-size:14px; color:#555; line-height:2.1; margin-bottom:22px;">
+        個人会員10,000円（2ヵ所まで設置可能）<br>
+        団体会員60,000円（3〜20ヵ所）／100,000円（21〜50ヵ所）<br>
+        市町村会員60,000円（1〜20ヵ所）／100,000円（21〜50ヵ所）
+      </div>
+      <div style="font-weight:700; font-size:14px; color:#333; margin-bottom:8px;">【認定費】</div>
+      <div style="font-size:14px; color:#555; line-height:2;">2,000円（新規設置1ヵ所につき）</div>
+    </div>
+  </div>
+
+  <div style="max-width:980px; margin:46px auto 0; padding:0 24px;"><div style="border-top:1px solid #ddd;"></div></div>
+
+  <!-- contact CTA + form -->
+  <div style="max-width:720px; margin:0 auto; padding:50px 24px 70px;">
+    <div style="text-align:center; font-size:14px; color:#333; font-weight:500;">▼▼こちらのお電話またはお問合せフォームからご連絡ください▼▼</div>
+    <div style="text-align:center; font-size:30px; font-weight:700; color:#333; margin:14px 0 8px;">TEL：03-5823-4190</div>
+    <div style="text-align:center; font-size:14px; color:#555; margin-bottom:46px;">受付日時：平日 00時〜00時</div>
+
+    <h3 style="font-size:16px; color:#46b35e; font-weight:700; margin:0 0 14px;">お問合せフォーム</h3>
+    <p style="font-size:14px; color:#555; line-height:1.9; margin:0 0 12px;">お問合せいただいた場合、ご返信までに3〜4営業日いただいております。あらかじめご了承下さいませ。</p>
+    <p style="font-size:14px; color:#555; line-height:1.9; margin:0 0 12px;">お問合せ内容をご記入後、送信ボタンを押してください。<br>確認画面の一番下『送信する』ボタンを押してお問合せ完了となります。</p>
+    <p style="font-size:14px; color:#555; line-height:1.9; margin:0 0 18px; border-bottom:1px solid #e3e3e3; padding-bottom:18px;">当社からの「お問合せフォーム受け付けました」メールが届かない場合はお手数ですが、再度送信をお願いいたします。</p>
+
+    <div style="font-size:16px; color:#333; font-weight:500; margin-bottom:8px;">お名前<span style="color:#e23;">＊</span></div>
+    <div class="become-name-row" style="display:flex; align-items:center; gap:14px; margin-bottom:22px;">
+      <span style="font-size:13px; color:#555;">氏名</span>
+      <input placeholder="お名前" style="flex:1; border:1px solid #ccc; border-radius:4px; padding:11px 14px; font-size:13px; font-family:inherit; color:#333; box-sizing:border-box;">
+    </div>
+    <div style="font-size:16px; color:#333; font-weight:500; margin-bottom:8px;">メールアドレス<span style="color:#e23;">＊</span></div>
+    <input placeholder="メールアドレス" style="width:100%; border:1px solid #ccc; border-radius:4px; padding:11px 14px; font-size:13px; font-family:inherit; color:#333; box-sizing:border-box; margin-bottom:22px;">
+    <div style="font-size:16px; color:#333; font-weight:500; margin-bottom:8px;">お問い合わせ内容<span style="color:#e23;">＊</span></div>
+    <textarea placeholder="お問い合わせ内容" rows="6" style="width:100%; border:1px solid #ccc; border-radius:4px; padding:11px 14px; font-size:13px; font-family:inherit; color:#333; box-sizing:border-box; resize:vertical; margin-bottom:22px;"></textarea>
+    <button style="width:100%; background:#5cb85c; color:#ffffff; border:none; border-radius:4px; padding:13px; font-size:14px; font-family:inherit; cursor:pointer; transition:filter .15s ease, transform .1s ease, box-shadow .15s ease;" style-hover="filter:brightness(1.07); box-shadow:0 4px 12px rgba(92,184,92,0.4);" style-active="transform:scale(0.99); filter:brightness(0.93);">確認</button>
+  </div>
+
+  <dc-import name="Footer" active="become" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>
