@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>まちの駅 公式サイト</title>
+<script src="./support.js"></script>
+<script src="./site-mobile.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; }
+  @media (max-width: 720px) {
+    .nationwide-region-grid {
+      grid-template-columns: 1fr !important;
+      gap: 16px !important;
+    }
+  }
+</style>
+</helmet>
+<div style="font-family:'Noto Sans JP',sans-serif; color:#333; background:#ffffff; min-height:100vh;">
+  <dc-import name="Header" active="nationwide" style="position:sticky; top:0; z-index:1000;" hint-size="100%,62px"></dc-import>
+
+  <section data-screen-label="全国まちの駅 / タイトル" style="background:#1a9d5e; padding:34px 24px 48px;">
+    <div style="max-width:820px; margin:0 auto;">
+      <div style="font-size:12px; color:#ffffff;"><a href="index.dc.html" style="color:#fff; text-decoration:underline;">HOME</a> ｜ <a href="index.dc.html" style="color:#fff; text-decoration:underline;">まちの駅（テストページ）</a> ｜全国まちの駅</div>
+      <h1 style="text-align:center; color:#ffffff; font-size:34px; font-weight:500; letter-spacing:8px; margin:34px 0 0;">全国まちの駅</h1>
+    </div>
+  </section>
+
+  <div style="max-width:820px; margin:0 auto; padding:36px 24px 70px;">
+    <!-- map -->
+    <iframe src="https://www.google.com/maps/d/embed?mid=1Kqq5VxG65yG-hyEzETz3Qkl7R-nWJaA&ehbc=2E312F" style="width:100%; height:480px; border:none; display:block;" loading="lazy"></iframe>
+
+    <!-- region picker -->
+    <h2 style="text-align:center; font-size:24px; font-weight:700; color:#333; margin:48px 0 4px;">まちの駅一覧表はこちら</h2>
+    <div style="text-align:center; font-size:12px; color:#777; margin-bottom:22px;">確認したいエリアを3つから選択して下さい</div>
+    <div class="nationwide-region-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+      <sc-for list="{{ regions }}" as="r" hint-placeholder-count="3">
+        <div onClick="{{ r.onClick }}" style="border:3px solid {{ r.color }}; border-radius:14px; overflow:hidden; box-shadow:0 2px 5px rgba(0,0,0,0.1); cursor:pointer; transition:transform .15s ease, box-shadow .15s ease;" style-hover="transform:translateY(-3px); box-shadow:0 6px 16px rgba(0,0,0,0.18);" style-active="transform:translateY(0); box-shadow:0 2px 5px rgba(0,0,0,0.1);">
+          <div style="text-align:center; font-size:26px; font-weight:700; color:#ffffff; background:{{ r.color }}; padding:12px 0;">{{ r.name }}</div>
+          <div style="font-size:14px; font-weight:700; color:{{ r.color }}; line-height:2; padding:16px 14px; text-align:center; white-space:pre-line;">{{ r.prefs }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+  </div>
+
+  <!-- tables (Looker Studio embeds) — wide section -->
+  <div style="max-width:960px; margin:0 auto; padding:0 24px 70px;">
+    <sc-for list="{{ tables }}" as="t" hint-placeholder-count="3">
+      <h2 id="{{ t.anchor }}" style="text-align:center; font-size:24px; font-weight:700; color:{{ t.color }}; margin:54px 0 16px; scroll-margin-top:80px;">まちの駅一覧　{{ t.region }}</h2>
+      <div style="width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch;">
+        <iframe src="{{ t.embed }}" style="display:block; margin:0 auto; border:0; width:900px; min-width:900px; max-width:100%; height:620px;" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </sc-for>
+  </div>
+
+  <dc-import name="Footer" active="nationwide" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  scrollTo(anchor) {
+    const el = document.getElementById(anchor);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  renderVals() {
+    const RED = '#e8332e', GREEN = '#2e9e54', BLUE = '#2f6fd0';
+    const anchors = { '北日本': 'tbl-north', '東日本': 'tbl-east', '西日本': 'tbl-west' };
+    return {
+      regions: [
+        { name: '北日本', color: RED, prefs: '北海道・岩手県\n宮城県・秋田県\n山形県・福島県', onClick: () => this.scrollTo('tbl-north') },
+        { name: '東日本', color: GREEN, prefs: '茨城県・栃木県・埼玉県\n千葉県・東京都・神奈川県\n新潟県・富山県・石川県\n福井県・山梨県・長野県\n岐阜県・静岡県・愛知県', onClick: () => this.scrollTo('tbl-east') },
+        { name: '西日本', color: BLUE, prefs: '三重県・京都府・大阪府\n兵庫県・奈良県・島根県\n岡山県・広島県・山口県\n香川県・高知県・福岡県\n佐賀県・長崎県・熊本県\n大分県・鹿児島県', onClick: () => this.scrollTo('tbl-west') },
+      ],
+      tables: [
+        { region: '北日本', anchor: 'tbl-north', color: RED, embed: 'https://datastudio.google.com/embed/reporting/cebb4bb0-61d8-4651-8662-838a53b129f2/page/edY0F' },
+        { region: '東日本', anchor: 'tbl-east', color: GREEN, embed: 'https://datastudio.google.com/embed/reporting/8cd66089-f0e9-4b55-ad36-e5ccabb3c2bc/page/edY0F' },
+        { region: '西日本', anchor: 'tbl-west', color: BLUE, embed: 'https://datastudio.google.com/embed/reporting/3b21f624-86b3-4e07-9475-38af48fc3fac/page/edY0F' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
