@@ -1,0 +1,77 @@
+name: Publish site and refresh Ameblo
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17,47 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: machinoeki-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    outputs:
+      deploy: ${{ steps.changes.outputs.deploy }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test blog renderer
+        run: python -m unittest discover -s tests -v
+      - name: Fetch and render latest three posts
+        run: python scripts/update_blog.py --keep-on-error
+      - name: Save updated posts
+        id: changes
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          git add -- index.html index.dc.html data/blog.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Refresh official Ameblo posts'
+            git push origin HEAD:main
+            echo 'deploy=true' >> "$GITHUB_OUTPUT"
+          elif [ "$EVENT_NAME" != 'schedule' ]; then
+            echo 'deploy=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'deploy=false' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Prepare public files only
+        if: steps.changes.outputs.deploy == 'true'
+        run: |
+          mkdir _site
+          cp -- *.html *.js .nojekyll _site/
+          cp -R -- assets uploads _site/
+      - uses: actions/upload-pages-artifact@v4
+        if: steps.changes.outputs.deploy == 'true'
+        with:
+          path: _site
+          retention-days: 1
+
+  deploy:
+    if: needs.build.outputs.deploy == 'true'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - uses: actions/deploy-pages@v4
+        id: deployment
