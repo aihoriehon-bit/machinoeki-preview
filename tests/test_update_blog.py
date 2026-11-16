@@ -1,5 +1,7 @@
 from datetime import datetime, timedelta, timezone
+from contextlib import redirect_stderr
 import importlib.util
+import io
 from pathlib import Path
 import tempfile
 import unittest
@@ -129,10 +131,12 @@ class BlogTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = self.make_root(directory)
             before = (root / 'index.html').read_bytes()
+            errors = io.StringIO()
             with patch('sys.argv', ['update_blog.py', '--root', directory, '--keep-on-error']), \
-                 patch.object(blog, 'fetch_feed', side_effect=TimeoutError):
+                 patch.object(blog, 'fetch_feed', side_effect=TimeoutError), redirect_stderr(errors):
                 blog.main()
             self.assertEqual((root / 'index.html').read_bytes(), before)
+            self.assertIn('keeping the published posts', errors.getvalue())
 
 
 if __name__ == '__main__':
