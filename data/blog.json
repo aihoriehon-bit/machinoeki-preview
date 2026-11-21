@@ -1,5 +1,18 @@
 {
   "blog": "https://ameblo.jp/machinoeki-now/",
   "checkedWeek": "2026-11-16",
-  "posts": []
+  "posts": [
+    {
+      "title": "第27回まちの駅全国大会 in 東京・下町 2/2",
+      "url": "https://ameblo.jp/machinoeki-now/entry-12985189390.html",
+      "image": "https://stat.ameba.jp/user_images/20261121/12/machinoeki-now/30/77/j/o0941067415843864083.jpg",
+      "published": "2026-11-21T03:52:33+00:00"
+    },
+    {
+      "title": "第27回まちの駅全国大会 in 東京・下町 1/2",
+      "url": "https://ameblo.jp/machinoeki-now/entry-12985182411.html",
+      "image": "https://stat.ameba.jp/user_images/20261121/11/machinoeki-now/49/75/j/o0654067915843846396.jpg",
+      "published": "2026-11-21T02:25:07+00:00"
+    }
+  ]
 }
